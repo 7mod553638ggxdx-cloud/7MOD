@@ -3,10 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic City - النسخة الهادئة</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Magic City - Final Edition</title>
+    <style>
+        /* --- قسم التصميم (CSS) --- */
+        :root {
+            --bg-color: #0d0f0e;      /* خلفية رمادية زيتية غامقة جداً */
+            --forest-green: #4ade80;  /* أخضر هادئ ومريح للعين */
+            --silver: #e2e8f0;        /* فضي مائل للأبيض */
+            --card-bg: #141615;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--forest-green); 
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .main-title {
+            color: var(--silver);
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            letter-spacing: 3px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #2d312f;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            background: transparent;
+            color: var(--forest-green);
+            transition: 0.2s;
+        }
+
+        .btn-main { background-color: var(--forest-green); color: #050505; border: none; }
+        .btn-danger { color: #f87171; border-color: #451a1a; }
+        .btn-outline { color: #64748b; border-color: #1e2120; }
+
+        .input-field {
+            width: 100%;
+            background-color: #1a1d1c;
+            border: 1px solid #2d312f;
+            color: var(--silver);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .white-box {
+            background-color: var(--silver);
+            color: #0d0f0e;
+            padding: 3px 18px;
+            border-radius: 4px;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        .stats-card {
+            width: 100%;
+            background-color: var(--card-bg);
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #1e2120;
+            box-sizing: border-box;
+        }
+
+        .stat-item {
+            font-size: 14px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-value { color: var(--forest-green); font-weight: bold; }
+
+        .selected-box {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #1e2120;
+        }
+
+        .divider { width: 100%; height: 1px; background: #1e2120; }
+        .wait-box { font-size: 12px; color: #64748b; text-align: center; }
+        .rights { margin-top: 25px; font-size: 11px; color: #334155; }
+    </style>
 </head>
 <body>
+
     <div class="container">
         <h1 class="main-title">MAGIC CITY</h1>
 
@@ -18,39 +122,100 @@
         <div class="divider"></div>
 
         <input type="number" id="add-input" class="input-field" placeholder="كمية الإضافة">
-        <button id="add-btn" class="btn btn-action">إضافة تكتات</button>
+        <button id="add-btn" class="btn btn">إضافة تكتات</button>
         
         <input type="number" id="delete-input" class="input-field" placeholder="كمية الحذف">
-        <button id="delete-btn" class="btn btn-action">حذف تكت</button>
+        <button id="delete-btn" class="btn btn">حذف تكت</button>
 
         <div class="stats-card">
-            <div class="stat-item">
-                <span>تكتات اليوم:</span>
-                <span id="day-tickets" class="stat-value">0</span>
-            </div>
-            <div class="stat-item">
-                <span>تكتات الأسبوع:</span>
-                <span id="week-tickets" class="stat-value">0</span>
-            </div>
-            <div class="stat-item">
-                <span>المجموع الكلي:</span>
-                <span id="total-tickets" class="stat-value">0</span>
-            </div>
+            <div class="stat-item"><span>تكتات اليوم:</span> <span id="day-tickets" class="stat-value">0</span></div>
+            <div class="stat-item"><span>تكتات الأسبوع:</span> <span id="week-tickets" class="stat-value">0</span></div>
+            <div class="stat-item"><span>المجموع الكلي:</span> <span id="total-tickets" class="stat-value">0</span></div>
             <div class="stat-item selected-box">
-                <span>الزر المختار:</span>
-                <span id="selected-btn" class="white-box">H</span>
+                <span>الزر المختار:</span> <span id="selected-btn" class="white-box">H</span>
             </div>
         </div>
 
         <input type="text" id="btn-input" class="input-field" placeholder="اسم الزر الجديد">
         <button id="update-btn-name" class="btn btn-outline">تحديث الزر</button>
 
-        <div class="wait-box">
-            زمن الانتظار الحالي: <span id="wait-val" class="stat-value">1.0</span> ثواني
-        </div>
-        
-        <input type="text" id="wait-input" class="input-field" placeholder="الزمن الجديد (مثلاً 0.5)">
+        <div class="wait-box">زمن الانتظار: <span id="wait-val" class="stat-value">1.0</span> ثواني</div>
+        <input type="text" id="wait-input" class="input-field" placeholder="الزمن الجديد">
         <button id="update-wait-btn" class="btn btn-outline">تحديث الزمن</button>
 
-        <footer class="rights">
-           By:3BOOD 493
+        <footer class="rights">تم التطوير بواسطة: <span>mc_3bood493</span></footer>
+    </div>
+
+    <script>
+        /* --- قسم البرمجة (JavaScript) --- */
+        document.addEventListener('contextmenu', e => e.preventDefault());
+
+        const keyMap = {'A':'ش','B':'لا','C':'ؤ','D':'ي','E':'ث','F':'ب','G':'ل','H':'ا','I':'ه','J':'ت','K':'ن','L':'م','M':'ة','N':'ى','O':'خ','P':'ح','Q':'ض','R':'ق','S':'س','T':'ف','U':'ع','V':'ر','W':'ص','X':'ء','Y':'غ','Z':'ئ'};
+        const getEqKey = (k) => { k=k.toUpperCase(); if(keyMap[k]) return keyMap[k]; for(let e in keyMap){if(keyMap[e]===k) return e;} return null; };
+
+        const playSound = () => {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const g = ctx.createGain();
+            osc.type = 'sine'; osc.frequency.setValueAtTime(1000, ctx.currentTime);
+            g.gain.setValueAtTime(0.5, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.1);
+            osc.connect(g); g.connect(ctx.destination);
+            osc.start(); osc.stop(ctx.currentTime + 0.1);
+        };
+
+        let day = parseInt(localStorage.getItem('day')) || 0;
+        let week = parseInt(localStorage.getItem('week')) || 0;
+        let total = parseInt(localStorage.getItem('total')) || 0;
+        let waiting = false;
+
+        const updateUI = () => {
+            document.getElementById('day-tickets').innerText = day;
+            document.getElementById('week-tickets').innerText = week;
+            document.getElementById('total-tickets').innerText = total;
+            localStorage.setItem('day', day); localStorage.setItem('week', week); localStorage.setItem('total', total);
+        };
+
+        const process = () => {
+            if (waiting) return;
+            playSound();
+            day++; week++; total++; updateUI();
+            waiting = true;
+            let t = parseFloat(document.getElementById('wait-val').innerText) * 1000;
+            document.getElementById('selected-btn').style.opacity = "0.3";
+            setTimeout(() => { waiting = false; document.getElementById('selected-btn').style.opacity = "1"; }, t);
+        };
+
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName !== 'INPUT') {
+                let pk = e.key.toUpperCase();
+                let sc = document.getElementById('selected-btn').innerText.trim().toUpperCase();
+                if (pk === sc || pk === getEqKey(sc)) process();
+            }
+        });
+
+        document.getElementById('accept-order').onclick = process;
+        document.getElementById('update-btn-name').onclick = () => {
+            let v = document.getElementById('btn-input').value;
+            if(v) { document.getElementById('selected-btn').innerText = v.toUpperCase(); document.getElementById('btn-input').value = ""; }
+        };
+        document.getElementById('update-wait-btn').onclick = () => {
+            let v = document.getElementById('wait-input').value;
+            if(v) { document.getElementById('wait-val').innerText = v; document.getElementById('wait-input').value = ""; }
+        };
+        document.getElementById('add-btn').onclick = () => {
+            let v = parseInt(document.getElementById('add-input').value) || 0;
+            day += v; week += v; total += v; updateUI(); document.getElementById('add-input').value = "";
+        };
+        document.getElementById('delete-btn').onclick = () => {
+            let v = parseInt(document.getElementById('delete-input').value) || 0;
+            day=Math.max(0, day-v); week=Math.max(0, week-v); total=Math.max(0, total-v); updateUI(); document.getElementById('delete-input').value = "";
+        };
+        document.getElementById('reset-all').onclick = () => { day=0; week=0; total=0; updateUI(); };
+        document.getElementById('reset-day').onclick = () => { day=0; updateUI(); };
+        document.getElementById('reset-week').onclick = () => { week=0; updateUI(); };
+
+        updateUI();
+    </script>
+</body>
+</html>
