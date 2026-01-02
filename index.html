@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic City - النسخة الهادئة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">MAGIC CITY</h1>
+
+        <button id="accept-order" class="btn btn-main">قبول طلب</button>
+        <button id="reset-all" class="btn btn-danger">تصفير الكل</button>
+        <button id="reset-day" class="btn btn-outline">تصفير اليوم</button>
+        <button id="reset-week" class="btn btn-outline">تصفير الأسبوع</button>
+
+        <div class="divider"></div>
+
+        <input type="number" id="add-input" class="input-field" placeholder="كمية الإضافة">
+        <button id="add-btn" class="btn btn-action">إضافة تكتات</button>
+        
+        <input type="number" id="delete-input" class="input-field" placeholder="كمية الحذف">
+        <button id="delete-btn" class="btn btn-action">حذف تكت</button>
+
+        <div class="stats-card">
+            <div class="stat-item">
+                <span>تكتات اليوم:</span>
+                <span id="day-tickets" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span>تكتات الأسبوع:</span>
+                <span id="week-tickets" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span>المجموع الكلي:</span>
+                <span id="total-tickets" class="stat-value">0</span>
+            </div>
+            <div class="stat-item selected-box">
+                <span>الزر المختار:</span>
+                <span id="selected-btn" class="white-box">H</span>
+            </div>
+        </div>
+
+        <input type="text" id="btn-input" class="input-field" placeholder="اسم الزر الجديد">
+        <button id="update-btn-name" class="btn btn-outline">تحديث الزر</button>
+
+        <div class="wait-box">
+            زمن الانتظار الحالي: <span id="wait-val" class="stat-value">1.0</span> ثواني
+        </div>
+        
+        <input type="text" id="wait-input" class="input-field" placeholder="الزمن الجديد (مثلاً 0.5)">
+        <button id="update-wait-btn" class="btn btn-outline">تحديث الزمن</button>
+
+        <footer class="rights">
+           By:3BOOD 493

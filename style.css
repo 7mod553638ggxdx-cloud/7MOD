@@ -1,0 +1,119 @@
+:root {
+    --bg-color: #0d0f0e;      /* خلفية رمادية زيتية غامقة جداً */
+    --forest-green: #4ade80;  /* أخضر هادئ ومريح للعين */
+    --silver: #e2e8f0;        /* فضي مائل للأبيض */
+    --card-bg: #141615;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--forest-green); 
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    direction: rtl;
+}
+
+.container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.main-title {
+    color: var(--silver); /* العنوان بالفضّي ليعطي فخامة */
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+}
+
+/* الأزرار بنمط هادئ */
+.btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #2d312f;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--forest-green);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(74, 222, 128, 0.05);
+    border-color: var(--forest-green);
+}
+
+.btn-main { 
+    background-color: var(--forest-green); 
+    color: #050505; 
+    border: none;
+}
+
+.btn-danger { color: #f87171; border-color: #451a1a; }
+
+/* حقول الإدخال */
+.input-field {
+    width: 100%;
+    background-color: #1a1d1c;
+    border: 1px solid #2d312f;
+    color: var(--silver);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* الشريط الفضي (الزر المختار) */
+.white-box {
+    background-color: var(--silver);
+    color: #0d0f0e;
+    padding: 3px 18px;
+    border-radius: 4px;
+    font-weight: 800;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(226, 232, 240, 0.3);
+}
+
+.stats-card {
+    width: 100%;
+    background-color: var(--card-bg);
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid #1e2120;
+    box-sizing: border-box;
+}
+
+.stat-item {
+    font-size: 14px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #94a3b8; /* لون رمادي للنصوص الفرعية */
+}
+
+.stat-item span:first-child { color: #94a3b8; } /* النص الجانبي */
+
+.stat-value { color: var(--forest-green); font-weight: bold; }
+
+.selected-box {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #1e2120;
+    color: var(--silver) !important;
+}
+
+.divider { width: 100%; height: 1px; background: #1e2120; margin: 5px 0; }
+.wait-box { font-size: 12px; color: #64748b; text-align: center; }
+.rights { margin-top: 25px; font-size: 11px; color: #334155; }
+.rights span { color: var(--forest-green); }
